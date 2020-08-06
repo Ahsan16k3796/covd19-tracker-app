@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       height: theme.spacing(16),
     },
+    backgroundColor: 'transparent'
   },
 }));
 
@@ -62,7 +63,9 @@ export default function GlobalData() {
       fetchGlobalData();
   },[]);// to get the data from the api in background
 
-  const loading="loading ...";
+  console.log(dataLoading);
+
+  const loading="Loading ...";
   if (dataLoading){
       return (
         <div className={classes.root}>
@@ -109,16 +112,7 @@ export default function GlobalData() {
         </Typography>
         </div>
       </Paper>
-      <Paper elevation={3}>
-        <div className={classesTypo.root}>
-        <Typography variant="h4" gutterBottom style={{color : 'purple'}}>
-        {loading}
-        </Typography>
-        <Typography variant="subtitle2" gutterBottom style={{color : 'purple'}}>
-            Unresolved 
-        </Typography>
-        </div>
-      </Paper>
+      
     </div>
       )
   }

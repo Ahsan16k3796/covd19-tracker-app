@@ -13,6 +13,29 @@
   }
 }
 
+.container{
+  display: flex ;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0 0 ;
+  /* background-color: aqua; */
+  /* background-image: url('../image/bg.jpg'); */
+  background-image: url('./images/c2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* border-image-width: 100%; */
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    /* The file size of this background image is 93% smaller
+       to improve page load speed on mobile internet connections */
+    background-image: url(./images/covid19.jpg);
+  }
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
