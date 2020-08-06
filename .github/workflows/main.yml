@@ -1,0 +1,27 @@
+# This is a basic workflow to help you get started with Actions
+
+name: React App (Expense Tracker)
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Deploying to surge
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v2-beta
+      with:
+          node-version: 12
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+          cmd: install # will run `yarn install` comman
+    - name: Build React App
+      run: yarn build
+      
+    - name: Install surge
+      run: npm install --global surge
+      
+    - name: Deploy to Surge
+      run: surge ./build  covid19_tracker_app_by_ak47.surge.sh --token ${{ secrets.SURGE_TOKEN }}
